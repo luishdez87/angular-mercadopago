@@ -1,0 +1,21 @@
+<div class="main">
+  <!-- <form (ngSubmit)="submit()">
+
+    <input data-checkout="card">
+  </form> -->
+  <form #formContainer [formGroup]="paymentForm" (ngSubmit)="submit()">
+    <p>N&uacute;mero de Tarjeta: <input data-checkout="cardNumber" #ccNumber
+      formControlName="cardNumber" 
+      maxlength="20"
+      (keyup)="creditCardNumberSpacing()" type="tel"/></p>
+    <p>C&oacute;digo de Seguridad: <input data-checkout="securityCode" type="text"/></p>
+    <p>Mes de Expiraci&oacute;n: <input data-checkout="cardExpirationMonth" type="text"/></p>
+    <p>A&ntilde;o de Expiraci&oacute;n: <input data-checkout="cardExpirationYear" type="text"/></p>
+    <p>Titular de la Tarjeta: <input data-checkout="cardholderName" type="text"/></p>
+    <div *ngIf="typesNeeded">
+      <select  id="docType" data-checkout="docType"></select>
+      <p>N&uacute;mero de Documento: <input data-checkout="docNumber" type="text"/></p>
+    </div>
+    <p><input type="submit" value="Realizar Pago"></p>
+  </form>
+</div>
